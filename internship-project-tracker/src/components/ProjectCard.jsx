@@ -49,8 +49,7 @@ export default function ProjectCard({ project, onEdit, onDelete }) {
             </div>
           </div>
         </div>
-  
-        {/* 🌟 Alt buton alanı - mt-auto ile her tarayıcıda kesin olarak en altta kalması garantilendi */}
+        
         <div className="border-t border-white/5 pt-4 flex justify-between items-center mt-auto">
           <span className="text-xs text-gray-400 font-medium flex items-center gap-1.5">
             <span className="text-base">⏱️</span>
