@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr" className="h-full">
       <body
-        className={`${inter.className} bg-[#0b0f19] text-gray-100 min-h-screen flex flex-col relative overflow-x-hidden antialiased`}
+        className={`${inter.className} bg-[#0b0f19] text-gray-100 min-h-[100dvh] flex flex-col relative overflow-x-hidden antialiased`}
       >
         <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute top-[20%] right-[-10%] w-[45vw] h-[45vw] bg-emerald-500/3 blur-[130px] rounded-full pointer-events-none" />
