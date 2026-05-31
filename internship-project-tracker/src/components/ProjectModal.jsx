@@ -98,13 +98,13 @@ export default function ProjectModal({ isOpen, onClose, onSave, editingProject }
             <button 
               type="button" 
               onClick={onClose}
-              className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors"
+              className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors cursor-pointer"
             >
               İptal
             </button>
             <button 
               type="submit" 
-              className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg transition-colors"
+              className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg transition-colors cursor-pointer"
             >
               {editingProject ? 'Güncelle' : 'Kaydet'}
             </button>
