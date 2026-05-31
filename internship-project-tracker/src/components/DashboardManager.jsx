@@ -10,9 +10,11 @@ export default function DashboardManager() {
   const [projects, setProjects] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProject, setEditingProject] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setProjects(getProjects());
+    setIsLoading(false);
   }, []);
 
   const handleSaveProject = (projectData) => {
@@ -82,26 +84,32 @@ export default function DashboardManager() {
           + Yeni Görev/Proje Ekle
         </button>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
         <StatCard
           title="Toplam Proje / Görev"
-          value={projects.length}
+          value={isLoading ? "..." : projects.length}
           color="border-indigo"
         />
         <StatCard
           title="Tamamlanan İşler"
-          value={completedCount}
+          value={isLoading ? "..." : completedCount}
           color="border-emerald"
         />
         <StatCard
           title="Toplam Mesai Süresi"
-          value={`${totalDuration} Saat`}
+          value={isLoading ? "..." : `${totalDuration} Saat`}
           color="border-amber"
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.length === 0 ? (
-          <div className="col-span-full border border-dashed border-gray-800 rounded-2xl p-16 text-center bg-gray-950/20 backdrop-blur-sm">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[300px]">
+        {isLoading ? (
+          <div className="col-span-full flex items-center justify-center py-20">
+            <div className="w-8 h-8 border-2 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
+          </div>
+        ) : projects.length === 0 ? (
+          <div className="col-span-full border border-dashed border-white/5 rounded-2xl p-16 text-center bg-gray-950/20 backdrop-blur-sm animate-in fade-in duration-200">
             <p className="text-gray-400 font-semibold text-lg mb-1.5">
               Her şey tertemiz.
             </p>
@@ -112,15 +120,17 @@ export default function DashboardManager() {
           </div>
         ) : (
           projects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              onEdit={handleEditClick}
-              onDelete={handleDeleteProject}
-            />
+            <div key={project.id} className="animate-in fade-in duration-300">
+              <ProjectCard
+                project={project}
+                onEdit={handleEditClick}
+                onDelete={handleDeleteProject}
+              />
+            </div>
           ))
         )}
       </div>
+
       <ProjectModal
         isOpen={isModalOpen}
         onClose={() => {
