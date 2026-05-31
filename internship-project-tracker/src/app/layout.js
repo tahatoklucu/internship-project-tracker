@@ -18,9 +18,8 @@ export default function RootLayout({ children }) {
         <div className="hidden md:block absolute bottom-[10%] left-[10%] w-[40vw] h-[40vw] bg-purple-500/4 blur-[140px] rounded-full pointer-events-none z-0" />
         <div className="flex-1 w-full max-w-full relative z-10 flex flex-col px-0 m-0 overflow-x-hidden">
           {children}
+          <Footer />
         </div>
-        
-        <Footer />
       </body>
     </html>
   );
