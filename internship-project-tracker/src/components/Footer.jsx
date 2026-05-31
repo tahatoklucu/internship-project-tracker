@@ -5,10 +5,6 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-gray-950/20 backdrop-blur-md border-t border-white/5 mt-auto py-8 overflow-hidden w-full flex-shrink-0">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent" />
-      <div className="hidden md:block absolute bottom-0 left-1/4 w-72 h-24 bg-indigo-600/5 blur-[80px] rounded-full pointer-events-none" />
-      <div className="hidden md:block absolute bottom-0 right-1/4 w-72 h-24 bg-emerald-600/5 blur-[80px] rounded-full pointer-events-none" />
-
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
         <div className="text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-2 mb-1.5">
