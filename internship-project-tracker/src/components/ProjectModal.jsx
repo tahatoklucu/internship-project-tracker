@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 
 export default function ProjectModal({
@@ -37,11 +39,19 @@ export default function ProjectModal({
     onSave(formData);
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-in fade-in duration-200">
-      <div className="relative bg-[#0d1324]/70 backdrop-blur-xl border border-white/10 w-full max-w-md rounded-2xl p-6 shadow-[0_0_50px_-12px_rgba(99,102,241,0.15)] animate-in zoom-in-95 duration-200 overflow-hidden">
+    <div 
+      className={`fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center z-50 p-4 transition-all duration-300 ${
+        isOpen 
+          ? "opacity-100 pointer-events-auto visible" 
+          : "opacity-0 pointer-events-none invisible"
+      }`}
+    >
+      <div 
+        className={`relative bg-[#0d1324]/70 backdrop-blur-xl border border-white/10 w-full max-w-md rounded-2xl p-6 shadow-[0_0_50px_-12px_rgba(99,102,241,0.15)] overflow-hidden transition-all duration-300 ${
+          isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
+        }`}
+      >
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent" />
 
         <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 mb-5 tracking-tight">
