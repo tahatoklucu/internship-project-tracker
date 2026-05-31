@@ -11,7 +11,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="tr" className="h-full">
+    <html lang="tr" className="min-h-[100dvh]">
+      <head>
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';"
+        />
+      </head>
       <body
         className={`${inter.className} bg-[#0b0f19] text-gray-100 min-h-[100dvh] flex flex-col relative overflow-x-hidden antialiased`}
       >
