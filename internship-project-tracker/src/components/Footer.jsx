@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -20,35 +22,35 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex items-center gap-6 text-xs font-medium text-gray-400">
-          <a
-            href="#"
+          <Link
+            href="https://github.com/tahatoklucu"
             className="hover:text-white transition-colors duration-150 flex items-center gap-1 group"
           >
             <span>GitHub</span>
             <span className="text-[10px] text-gray-600 group-hover:text-indigo-400 transition-colors">
               ↗
             </span>
-          </a>
+          </Link>
           <span className="h-3 w-px bg-white/10" />
-          <a
-            href="#"
+          <Link
+            href="https://www.linkedin.com/in/tahatoklucu/"
             className="hover:text-white transition-colors duration-150 flex items-center gap-1 group"
           >
             <span>LinkedIn</span>
             <span className="text-[10px] text-gray-600 group-hover:text-indigo-400 transition-colors">
               ↗
             </span>
-          </a>
+          </Link>
           <span className="h-3 w-px bg-white/10" />
-          <a
-            href="#"
+          <Link
+            href="https://github.com/tahatoklucu/internship-project-tracker"
             className="hover:text-white transition-colors duration-150 flex items-center gap-1 group"
           >
-            <span>Portfolyo</span>
+            <span>Project Link</span>
             <span className="text-[10px] text-gray-600 group-hover:text-indigo-400 transition-colors">
               ↗
             </span>
-          </a>
+          </Link>
         </div>
         <div className="flex flex-col items-center md:items-end gap-2 text-right">
           <div className="flex items-center gap-2">
