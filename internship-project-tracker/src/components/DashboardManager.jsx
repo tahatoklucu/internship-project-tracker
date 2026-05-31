@@ -13,20 +13,9 @@ export default function DashboardManager() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const loadData = () => {
-      try {
-        const localData = getProjects();
-        setProjects(localData || []);
-      } catch (err) {
-        console.error("Data loading error:", err);
-      } finally {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 50);
-      }
-    };
-
-    loadData();
+    const data = getProjects();
+    setProjects(data || []);
+    setIsLoading(false);
   }, []);
 
   const handleSaveProject = (projectData) => {
@@ -114,7 +103,7 @@ export default function DashboardManager() {
           color="border-amber"
         />
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[40vh]">
         {isLoading ? (
           <div className="col-span-full flex items-center justify-center py-20">
