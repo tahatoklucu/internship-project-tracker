@@ -13,8 +13,20 @@ export default function DashboardManager() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setProjects(getProjects());
-    setIsLoading(false);
+    const loadData = () => {
+      try {
+        const localData = getProjects();
+        setProjects(localData || []);
+      } catch (err) {
+        console.error("Data loading error:", err);
+      } finally {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 50);
+      }
+    };
+
+    loadData();
   }, []);
 
   const handleSaveProject = (projectData) => {
@@ -102,14 +114,14 @@ export default function DashboardManager() {
           color="border-amber"
         />
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[300px]">
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[40vh]">
         {isLoading ? (
           <div className="col-span-full flex items-center justify-center py-20">
             <div className="w-8 h-8 border-2 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
           </div>
         ) : projects.length === 0 ? (
-          <div className="col-span-full border border-dashed border-white/5 rounded-2xl p-16 text-center bg-gray-950/20 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="col-span-full border border-dashed border-white/5 rounded-2xl p-16 text-center bg-gray-950/20 backdrop-blur-sm animate-in fade-in duration-200 h-fit">
             <p className="text-gray-400 font-semibold text-lg mb-1.5">
               Her şey tertemiz.
             </p>
