@@ -6,9 +6,9 @@ export default function ProjectCard({ project, onEdit, onDelete }) {
     };
   
     return (
-      <div className="relative bg-gray-950/20 backdrop-blur-md border border-white/10 rounded-xl p-5 shadow-xl hover:border-white/20 transition-all duration-300 flex flex-col h-full group overflow-hidden">
+      <div className="relative bg-gray-950/20 backdrop-blur-md border border-white/10 rounded-xl p-5 shadow-xl hover:border-white/20 transition-all duration-300 flex flex-col justify-between group overflow-hidden">
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-indigo-500/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-        <div className="flex-1">
+        <div>
           <div className="flex justify-between items-center mb-4">
             <span
               className={`text-[11px] font-bold px-2.5 py-0.5 rounded-md border ${
@@ -21,15 +21,12 @@ export default function ProjectCard({ project, onEdit, onDelete }) {
               {project.createdAt}
             </span>
           </div>
-          
           <h3 className="text-lg font-bold text-gray-100 mb-2 tracking-tight group-hover:text-white transition-colors line-clamp-1">
             {project.title}
           </h3>
-          
           <p className="text-gray-400 text-sm mb-5 leading-relaxed line-clamp-3 min-h-[60px]">
             {project.description || "Bu görev için bir açıklama girilmedi."}
           </p>
-          
           <div className="mb-5">
             <div className="flex flex-wrap gap-1.5">
               {project.techStack ? (
@@ -49,8 +46,7 @@ export default function ProjectCard({ project, onEdit, onDelete }) {
             </div>
           </div>
         </div>
-        
-        <div className="border-t border-white/5 pt-4 flex justify-between items-center mt-auto">
+        <div className="border-t border-white/5 pt-4 flex justify-between items-center mt-2">
           <span className="text-xs text-gray-400 font-medium flex items-center gap-1.5">
             <span className="text-base">⏱️</span>
             <span className="font-bold text-gray-200 text-sm">
